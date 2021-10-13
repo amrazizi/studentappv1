@@ -65,5 +65,77 @@ namespace StudentsAppV1
                 pnlEyeColor.BackColor = cd.Color;
             }
         }
+
+        private void TxtNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && (Keys)e.KeyChar != Keys.Back)
+            {
+                e.Handled = true;
+                lblErrorNO.Visible = true;
+                 
+            }
+            else
+            {
+                lblErrorNO.Visible = false;
+            }
+        }
+
+        private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && (Keys)e.KeyChar != Keys.Back && (Keys)e.KeyChar != Keys.Space)
+            {
+                e.Handled = true;
+                lblErrorName.Visible = true;
+            }
+            else
+            {
+                lblErrorName.Visible = false;
+            }
+        }
+
+        private void TxtMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && (Keys)e.KeyChar != Keys.Back)
+            {
+                e.Handled = true;
+                lblErrorMobile.Visible = true;
+
+            }
+            else
+            {
+                lblErrorMobile.Visible = false;
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            dgStudents.Rows.Add();
+
+            int lastIndex = dgStudents.Rows.Count - 1;
+
+            dgStudents.Rows[lastIndex].Cells[0].Value = txtNo.Text;
+            dgStudents.Rows[lastIndex].Cells[1].Value = txtName.Text;
+            dgStudents.Rows[lastIndex].Cells[2].Value = cmbFaculty.Text;
+            dgStudents.Rows[lastIndex].Cells[3].Value = cmbDept.Text;
+            dgStudents.Rows[lastIndex].Cells[4].Value = txtMobile.Text;
+            dgStudents.Rows[lastIndex].Cells[5].Value = dtDOB.Text;
+
+
+
+            if (rdMale.Checked)
+            {
+                dgStudents.Rows[lastIndex].Cells[6].Value = "male";
+            }
+            else if (rdFemale.Checked)
+            {
+                dgStudents.Rows[lastIndex].Cells[6].Value = "female";
+            }
+         
+            dgStudents.Rows[lastIndex].Cells[7].Value = chkMarried.Checked;
+            dgStudents.Rows[lastIndex].Cells[8].Value = txtAddress.Text;
+            dgStudents.Rows[lastIndex].Cells[9].Style.BackColor = pnlEyeColor.BackColor;
+            dgStudents.Rows[lastIndex].Cells[10].Value = picImage.Image;
+
+        }
     }
 }
