@@ -109,6 +109,7 @@ namespace StudentsAppV1
             // 
             // cmbFaculty
             // 
+            this.cmbFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFaculty.FormattingEnabled = true;
             this.cmbFaculty.Items.AddRange(new object[] {
             "f1",
@@ -140,6 +141,7 @@ namespace StudentsAppV1
             // 
             // cmbDept
             // 
+            this.cmbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDept.FormattingEnabled = true;
             this.cmbDept.Location = new System.Drawing.Point(428, 27);
             this.cmbDept.Name = "cmbDept";
@@ -175,6 +177,7 @@ namespace StudentsAppV1
             // rdMale
             // 
             this.rdMale.AutoSize = true;
+            this.rdMale.Checked = true;
             this.rdMale.Location = new System.Drawing.Point(11, 15);
             this.rdMale.Name = "rdMale";
             this.rdMale.Size = new System.Drawing.Size(48, 17);
@@ -234,7 +237,7 @@ namespace StudentsAppV1
             // 
             // pnlEyeColor
             // 
-            this.pnlEyeColor.BackColor = System.Drawing.Color.Red;
+            this.pnlEyeColor.BackColor = System.Drawing.Color.Black;
             this.pnlEyeColor.Location = new System.Drawing.Point(563, 135);
             this.pnlEyeColor.Name = "pnlEyeColor";
             this.pnlEyeColor.Size = new System.Drawing.Size(100, 23);
@@ -285,6 +288,7 @@ namespace StudentsAppV1
             this.btnDelete.TabIndex = 22;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnEdit
             // 
@@ -294,6 +298,7 @@ namespace StudentsAppV1
             this.btnEdit.TabIndex = 23;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // dgStudents
             // 
@@ -317,6 +322,7 @@ namespace StudentsAppV1
             this.dgStudents.Name = "dgStudents";
             this.dgStudents.ReadOnly = true;
             this.dgStudents.RowHeadersVisible = false;
+            this.dgStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgStudents.Size = new System.Drawing.Size(649, 277);
             this.dgStudents.TabIndex = 24;
             // 

@@ -124,17 +124,86 @@ namespace StudentsAppV1
 
             if (rdMale.Checked)
             {
-                dgStudents.Rows[lastIndex].Cells[6].Value = "male";
+                dgStudents.Rows[lastIndex].Cells[6].Value = "Male";
             }
             else if (rdFemale.Checked)
             {
-                dgStudents.Rows[lastIndex].Cells[6].Value = "female";
+                dgStudents.Rows[lastIndex].Cells[6].Value = "Female";
             }
          
             dgStudents.Rows[lastIndex].Cells[7].Value = chkMarried.Checked;
             dgStudents.Rows[lastIndex].Cells[8].Value = txtAddress.Text;
             dgStudents.Rows[lastIndex].Cells[9].Style.BackColor = pnlEyeColor.BackColor;
             dgStudents.Rows[lastIndex].Cells[10].Value = picImage.Image;
+
+            ClearUI();
+        }
+        private void ClearUI()
+        {
+            txtNo.Text = string.Empty;
+            txtName.Text = string.Empty;
+            txtMobile.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+
+
+            rdMale.Checked = true;
+            chkMarried.Checked = false;
+
+            picImage.Image = null;
+
+            pnlEyeColor.BackColor = Color.Black;
+
+            cmbFaculty.SelectedIndex = -1;
+            cmbDept.Items.Clear();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgStudents.CurrentRow == null)
+            {
+                MessageBox.Show("There is no selected row to delete");
+                return;
+            }
+            int currentIndex = dgStudents.CurrentRow.Index;
+            dgStudents.Rows.RemoveAt(currentIndex);
+            
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgStudents.CurrentRow == null)
+            {
+                MessageBox.Show("There is no selected row to edit");
+                return;
+            }
+            int currentIndex = dgStudents.CurrentRow.Index;
+
+            dgStudents.Rows[currentIndex].Cells[0].Value = txtNo.Text;
+            dgStudents.Rows[currentIndex].Cells[1].Value = txtName.Text;
+            dgStudents.Rows[currentIndex].Cells[2].Value = cmbFaculty.Text;
+            dgStudents.Rows[currentIndex].Cells[3].Value = cmbDept.Text;
+            dgStudents.Rows[currentIndex].Cells[4].Value = txtMobile.Text;
+            dgStudents.Rows[currentIndex].Cells[5].Value = dtDOB.Text;
+
+
+
+            if (rdMale.Checked)
+            {
+                dgStudents.Rows[currentIndex].Cells[6].Value = "Male";
+            }
+            else if (rdFemale.Checked)
+            {
+                dgStudents.Rows[currentIndex].Cells[6].Value = "Female";
+            }
+
+            dgStudents.Rows[currentIndex].Cells[7].Value = chkMarried.Checked;
+            dgStudents.Rows[currentIndex].Cells[8].Value = txtAddress.Text;
+            dgStudents.Rows[currentIndex].Cells[9].Style.BackColor = pnlEyeColor.BackColor;
+            dgStudents.Rows[currentIndex].Cells[10].Value = picImage.Image;
+
+            ClearUI();
+
+
 
         }
     }
